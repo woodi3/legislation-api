@@ -8,14 +8,6 @@ router
     .get(searchController.getQuery);
 
 module.exports = router;
-
-/**
- * @swagger
- * tags:
- *   name: Search
- *   description: Search management and retrieval
- */
-
 /**
  * @swagger
  * path:
@@ -23,7 +15,7 @@ module.exports = router;
  *    get:
  *      summary: Query vote summaries
  *      description: Queries vote summaries, preferrably by a search string
- *      tags: [VoteSummary, Tally]
+ *      tags: [Search]
  *      parameters:
  *        - in: query
  *          name: name
@@ -44,4 +36,28 @@ module.exports = router;
  *            minimum: 1
  *            default: 1
  *          description: Page number
+ *    responses:
+ *        "200":
+ *          description: OK
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  data:
+ *                    type: array
+ *                    items:
+ *                      $ref: '#/components/schemas/VoteSummaryResponse'
+ *                  currentPage:
+ *                    type: integer
+ *                    example: 1
+ *                  currentPageSize:
+ *                    type: integer
+ *                    example: 10
+ *                  totalPages:
+ *                    type: integer
+ *                    example: 1
+ *                  totalResults:
+ *                    type: integer
+ *                    example: 1
  */

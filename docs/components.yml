@@ -54,6 +54,49 @@ components:
         voteNumber: 00181
         voteDate: 16-Sep
         url: /legislative/LIS/roll_call_lists/vote_menu_116_2.htm
+        
+    VoteSummaryResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        congress:
+          type: string
+        congressYear:
+          type: string
+        issue:
+          type: string
+        session:
+          type: string
+        title: 
+          type: string
+        voteNumber:
+          type: string
+        voteDate:
+          type: string
+        url:
+          type: string
+        name:
+          type: string
+        party:
+          type: string
+        state:
+          type: string
+        voteCast: 
+          type: string
+      example:
+        congress: 116
+        congressYear: 2020
+        issue: PN1508
+        session: 2
+        title: Motion to Invoke Cloture - Iain D. Johnston to be U.S. District Judge for the Northern District of Illinois
+        voteNumber: 00181
+        voteDate: 16-Sep
+        url: /legislative/LIS/roll_call_lists/vote_menu_116_2.htm
+        name: Christopher Coons
+        state: DE
+        party: D
+        voteCast: Yea
 
     Error:
       type: object
