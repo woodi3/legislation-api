@@ -1,0 +1,94 @@
+components:
+  schemas:
+    Tally:
+      type: object
+      properties:
+        id:
+          type: string
+        issue:
+          type: string
+        name:
+          type: string
+        party:
+          type: string
+        state:
+          type: string
+        voteCast: 
+          type: string
+      example:
+        id: 5ebac534954b54139806c112
+        issue: S. 4653
+        name: Christopher Coons
+        state: DE
+        party: D
+        voteCast: Yea
+
+    VoteSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        congress:
+          type: string
+        congressYear:
+          type: string
+        issue:
+          type: string
+        session:
+          type: string
+        title: 
+          type: string
+        voteNumber:
+          type: string
+        voteDate:
+          type: string
+        url:
+          type: string
+      example:
+        id: 5f7a4f257cab3d038c2636a3
+        congress: 116
+        congressYear: 2020
+        issue: PN1508
+        session: 2
+        title: Motion to Invoke Cloture - Iain D. Johnston to be U.S. District Judge for the Northern District of Illinois
+        voteNumber: 00181
+        voteDate: 16-Sep
+        url: /legislative/LIS/roll_call_lists/vote_menu_116_2.htm
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Please authenticate
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+
